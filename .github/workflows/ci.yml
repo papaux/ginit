@@ -31,6 +31,7 @@ jobs:
 
     - name: Setup and run
       run: |
+        whoami
         source setup.sh
         ./run.sh
 
