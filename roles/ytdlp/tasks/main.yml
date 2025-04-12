@@ -1,0 +1,13 @@
+---
+- name: Add yt-dlp PPA
+  apt_repository:
+    repo: ppa:tomtomtom/yt-dlp
+    state: present
+
+- name: Install yt-dlp and ffmpeg
+  ansible.builtin.package:
+    name:
+      - yt-dlp
+      - ffmpeg
+    state: present
+

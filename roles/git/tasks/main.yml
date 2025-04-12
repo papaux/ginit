@@ -1,0 +1,19 @@
+---
+- name: Install Git
+  become: true
+  ansible.builtin.package:
+    state: present
+    name: git
+
+- name: Set Git user name
+  git_config:
+    name: user.name
+    scope: global
+    value: Geoffrey Papaux
+
+- name: Set Git user email
+  git_config:
+    name: user.email
+    scope: global
+    value: geoffrey.papaux@gmail.com
+

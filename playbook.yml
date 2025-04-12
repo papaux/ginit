@@ -1,0 +1,12 @@
+---
+
+- name: WSL Setup for Ubuntu
+  hosts: localhost
+  become: true
+  roles:
+    - common
+    - ytdlp
+    - syncthing
+    - git
+    - omz
+    - docker
