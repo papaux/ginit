@@ -1,0 +1,51 @@
+name: Test Ansible Playbook on Ubuntu and Arch Linux
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, archlinux]
+        include:
+          - os: ubuntu-latest
+            ansible_package: apt
+          - os: archlinux
+            ansible_package: pacman
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Setup and run
+      run: |
+        source setup.sh
+        ./run.sh
+
+
+    - name: Test if commands are installed
+      run: |
+        # Define list of commands to test
+        commands=("curl" "git" "python3")
+        
+        # Loop over the list of commands to test if they're installed
+        for cmd in "${commands[@]}"; do
+          if command -v $cmd > /dev/null 2>&1; then
+            echo "$cmd is installed"
+          else
+            echo "$cmd is not installed"
+            exit 1
+          fi
+        done
