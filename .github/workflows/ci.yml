@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, archlinux]
+        os: [ubuntu-latest]
         include:
           - os: ubuntu-latest
             ansible_package: apt
