@@ -31,8 +31,6 @@ jobs:
 
     - name: Setup and run
       run: |
-        whoami
-        sudo whoami
         source setup.sh
         ./run.sh
 
