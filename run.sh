@@ -1,1 +1,1 @@
-ansible-playbook -i inventory.ini --ask-become-pass playbook.yaml
+ansible-playbook -i inventory.ini --ask-become-pass playbook.yml
