@@ -42,7 +42,6 @@
     depth: 1
 
 - name: Change user shell to zsh 
-  become: false
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     shell: /bin/zsh
