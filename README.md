@@ -12,6 +12,12 @@ Note:
 
 # Usage
 
+**Ubuntu prep**:
+```shell
+sudo apt install python3-venv python3-pip
+```
+
+**Run**:
 ```shell
 source setup.sh
 ./run.sh
